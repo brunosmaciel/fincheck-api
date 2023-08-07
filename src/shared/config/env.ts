@@ -10,11 +10,14 @@ class Env {
   @IsString()
   @IsNotEmpty()
   dbUrl: string;
+
+  port?:number
 }
 
 export const env = plainToInstance(Env, {
   dbUrl: process.env.DATABASE_URL,
   jwtSecret: process.env.JWT_SECRET,
+  port?: process.env.PORT
 });
 const environmentErrors = validateSync(env);
 
