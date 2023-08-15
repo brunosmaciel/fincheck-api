@@ -20,7 +20,7 @@ export const env = plainToInstance(Env, {
   port: process.env.PORT,
 });
 const environmentErrors = validateSync(env);
-
+console.log(process.env.PORT);
 if (environmentErrors.length > 0) {
   throw new Error(JSON.stringify(environmentErrors, null, 2));
 }
